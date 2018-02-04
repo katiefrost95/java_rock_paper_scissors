@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Main {
 
     public static void main(String[] args) {
-	    createWindow();
+	    alert();
     }
 
     // Creating window
@@ -25,5 +25,26 @@ public class Main {
         frame.pack();
         // Showing the window
         frame.setVisible(true);
+        // calling alert
+//        alert();
+    }
+
+    // Creating alert
+    private static void alert() {
+        // Creating text field for alert box
+        JTextField rpsOption = new JTextField();
+        final JComponent[] inputs = new JComponent[] {
+                new JLabel("Hi there! Lets play rock, paper, scissors. Which do you pick? "),
+                rpsOption,
+        };
+        // saving user input and giving back a response in console.
+        int result = JOptionPane.showConfirmDialog(null, inputs, "Rock, Paper, Scissors", JOptionPane.PLAIN_MESSAGE);
+        if (result == JOptionPane.OK_OPTION) {
+            System.out.println("You entered " +
+                    rpsOption.getText() + ", ");
+        } else {
+            System.out.println("User canceled / closed the dialog, result = " + result);
+        }
     }
 }
+
