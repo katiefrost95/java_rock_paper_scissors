@@ -8,27 +8,6 @@ public class Main {
 	    alert();
     }
 
-    // Creating window
-    public static void createWindow() {
-        //Create and set up the window.
-        JFrame frame = new JFrame("Katie's Window");
-        //Making sure when window is closed the application stops
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // Creating Jlabel inside the window-can contain image or text
-        JLabel textLabel = new JLabel("I'm a label in the window",SwingConstants.CENTER);
-        textLabel.setPreferredSize(new Dimension(300, 100));
-        //Adding JLabel to JFrame
-        frame.getContentPane().add(textLabel, BorderLayout.CENTER);
-        // Window appears in middle of screen
-        frame.setLocationRelativeTo(null);
-        //Automatically setting the size of the window
-        frame.pack();
-        // Showing the window
-        frame.setVisible(true);
-        // calling alert
-//        alert();
-    }
-
     // Creating alert
     private static void alert() {
         // Creating text field for alert box
@@ -39,11 +18,22 @@ public class Main {
         };
         // saving user input and giving back a response in console.
         int result = JOptionPane.showConfirmDialog(null, inputs, "Rock, Paper, Scissors", JOptionPane.PLAIN_MESSAGE);
+        // If pressed okay save to console
         if (result == JOptionPane.OK_OPTION) {
             System.out.println("You entered " +
                     rpsOption.getText() + ", ");
+            // if comp pick and user pick the same we draw
+            // if comp pick and user pick diff one win/one lose
         } else {
             System.out.println("User canceled / closed the dialog, result = " + result);
+        }
+    }
+
+    private static void computerChoice() {
+        double computerInput = Math.floor(Math.random()*3);
+        String comp_pick;
+        if (computerInput.equals("0")) {
+            comp_pick.equals("rock");
         }
     }
 }
